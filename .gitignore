@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+downloads/
+work/
+*.pkg
+*.dmg
+*.ipsw
+*.aea
+*.partial
+*.kext/

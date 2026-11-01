@@ -1,0 +1,809 @@
+{
+  "target_version": "27.2",
+  "target_build": "26B123",
+  "distribution_sha256": "8b521a20c874185d15d99d66f387a0dfe118294ac21aa76b88d220b792ab6d3c",
+  "mobile_asset_plist_sha256": "a01683ce2f54e9a65e4b7fe76df850b75dd382f74270dd9f8d6265382f93f758",
+  "asset_count": 60,
+  "asset_versions_builds": [
+    [
+      "27.2",
+      "26B123"
+    ]
+  ],
+  "distribution_supported_board_ids_expression": "[]",
+  "supported_device_models": [
+    "J180dAP",
+    "J274AP",
+    "J293AP",
+    "J313AP",
+    "J314cAP",
+    "J314sAP",
+    "J316cAP",
+    "J316sAP",
+    "J375cAP",
+    "J375dAP",
+    "J413AP",
+    "J414cAP",
+    "J414sAP",
+    "J415AP",
+    "J416cAP",
+    "J416sAP",
+    "J433AP",
+    "J434AP",
+    "J456AP",
+    "J457AP",
+    "J473AP",
+    "J474sAP",
+    "J475cAP",
+    "J475dAP",
+    "J493AP",
+    "J504AP",
+    "J514cAP",
+    "J514mAP",
+    "J514sAP",
+    "J516cAP",
+    "J516mAP",
+    "J516sAP",
+    "J575cAP",
+    "J575dAP",
+    "J604AP",
+    "J613AP",
+    "J614cAP",
+    "J614sAP",
+    "J615AP",
+    "J616cAP",
+    "J616sAP",
+    "J623AP",
+    "J624AP",
+    "J700AP",
+    "J704AP",
+    "J713AP",
+    "J714cAP",
+    "J714sAP",
+    "J715AP",
+    "J716cAP",
+    "J716sAP",
+    "J773gAP",
+    "J773sAP",
+    "J775cAP",
+    "J775dAP",
+    "J813AP",
+    "J815AP",
+    "J873gAP",
+    "J873sAP",
+    "VMA2MACOSAP"
+  ],
+  "cryptex_tags": [
+    "BaseSystem-arm64e",
+    "cryptex-app",
+    "cryptex-system-arm64e",
+    "cryptex-system-arm64e.x1",
+    "cryptex-system-rosetta"
+  ],
+  "build_identities": [
+    {
+      "device_class": "j180dap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j180dap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j274ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j274ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j293ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j293ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j313ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j313ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j314cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j314cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j314sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j314sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j316cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j316cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j316sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j316sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j375cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j375cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j375dap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j375dap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j413ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j413ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j414cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j414cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j414sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j414sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j415ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j415ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j416cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j416cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j416sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j416sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j433ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j433ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j434ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j434ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j456ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j456ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j457ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j457ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac13g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j473ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j473ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j474sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j474sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j475cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j475cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j475dap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j475dap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j493ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j493ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac14g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j504ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j504ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j514cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j514cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j514map",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j514map",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j514sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15s",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j514sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15s",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j516cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j516cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j516map",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j516map",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j516sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15s",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j516sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15s",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j575cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j575cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j575dap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j575dap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j604ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j604ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j613ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j613ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j614cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j614cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j614sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j614sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j615ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j615ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac15g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j616cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j616cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j616sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j616sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j623ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j623ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j624ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j624ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j700ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17p",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j700ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17p",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j704ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j704ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j713ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j713ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j714cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j714cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j714sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j714sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j715ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j715ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j716cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j716cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j716sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j716sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j773gap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j773gap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j773sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j773sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac16j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j775cap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j775cap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j775dap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j775dap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j813ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j813ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j815ap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j815ap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j873gap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac18g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j873gap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac18g",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j873sap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "j873sap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.mac17j",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "vma2macosap",
+      "variant": "macOS Customer Software Update",
+      "kernel_path": "kernelcache.release.vma2",
+      "platform": "macosx"
+    },
+    {
+      "device_class": "vma2macosap",
+      "variant": "Customer Software Update",
+      "kernel_path": "kernelcache.release.vma2",
+      "platform": "macosx"
+    }
+  ],
+  "limits": [
+    "Metadata inventories describe shipped assets; they do not prove kernel headers or driver ABI compatibility.",
+    "IsUniversal is not treated as evidence of an Intel kernel."
+  ]
+}
