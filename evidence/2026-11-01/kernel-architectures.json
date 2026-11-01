@@ -1,0 +1,209 @@
+{
+  "scope": "Kernel entries in this specific shipped MobileAsset archive, not a boot test",
+  "version": "27.2",
+  "build": "26B123",
+  "parent_package_sha256": "26bee623af06bf6c78a57e62ea6f188e678b841d9d30f25415fe73cf8444183a",
+  "archive_filename": "a7b1a7ae5e3e89909b529db2419f827493fa9af5.zip",
+  "archive_bytes": 17780243047,
+  "kernel_count": 14,
+  "kernel_records": [
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac13g",
+      "zip_uncompressed_bytes": 32816439,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "9f2720af73cfa099e6b5b0d330accf1bf99f0d11ed1324f9127cea6c918ae2b5",
+      "decoded_sha256": "c840523a245ac3a2dff98d96db5e5f6b60396976d472e5aa042ff553abb516d0",
+      "decoded_bytes": 123240448,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:46:57 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T8103"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac13j",
+      "zip_uncompressed_bytes": 33183701,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "daa55e3cc7dd07c5136e0fee28426e2b0e96b3fd68c812c586a4a867ab824faf",
+      "decoded_sha256": "5e259068a469bee7a3abfa39d8c0e71b5c42b294b0f16b24ec5dd6d46ad54e72",
+      "decoded_bytes": 124665856,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Thu Oct 15 00:02:46 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T6000"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac14g",
+      "zip_uncompressed_bytes": 33453288,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "6c7006a061164a2296efed13313bcd691abd58b85a85f4d6f44ade88773f4f16",
+      "decoded_sha256": "d934956860b02d9330fea2b9807867417d034c7a786a7299259f0303e4fd2238",
+      "decoded_bytes": 125337600,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:48:16 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T8112"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac14j",
+      "zip_uncompressed_bytes": 33495550,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "dac97c356dd1c0b338551632f2cdcaedeca8bb92196f0e5d48315fcd550d503f",
+      "decoded_sha256": "2d6520798a32bee6e377a2906d3dd02a788d4ed396ae9c6c5884dbe909d8a47e",
+      "decoded_bytes": 125353984,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Thu Oct 15 00:00:57 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T6020"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac15g",
+      "zip_uncompressed_bytes": 33244143,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "c5f2e5c9d070d78c1588e7b27412c22486620e2986db22d26012a8e5a09b6e93",
+      "decoded_sha256": "9847feda32bad28bcc2df19f0f26f6fc6c3d4ff78319ec2087bdaff984a8ff6a",
+      "decoded_bytes": 124583936,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:43:44 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T8122"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac15j",
+      "zip_uncompressed_bytes": 33730742,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "b7237c220ea27eadaeda7bf262739231cfbdbcf12f51973a27881644b15f7fbc",
+      "decoded_sha256": "05e3bc1a1fd1f54425012331601229246dc5991501ec5ada53d2d88b70a2602b",
+      "decoded_bytes": 126402560,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:47:32 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T6031"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac15s",
+      "zip_uncompressed_bytes": 33227647,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "ce058f94c59020954d7ff1bcdba5f386e92684282bf4086e7de3f7e23aa11dcd",
+      "decoded_sha256": "38f3417b4225e6d9e90235867cd324439437bc4c04b14af6cf43289c03e54f15",
+      "decoded_bytes": 124387328,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:47:21 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T6030"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac16g",
+      "zip_uncompressed_bytes": 33752926,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "77bbaf033764e49439e41d5c5d2f38d057af311dd2d0c90cc8ad77b9df94f87b",
+      "decoded_sha256": "fc6b521158a6a2c3d59e165f49fec2826ab90ff60ebb9196380731562504a8cc",
+      "decoded_bytes": 127156224,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:47:07 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T8132"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac16j",
+      "zip_uncompressed_bytes": 33642387,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "61ced3653c348a50f7d00a1154057c28f88d18dedc99fe0da84bc6fd680d321d",
+      "decoded_sha256": "a712d2fa9985f3d227facee33caf2488c7a9baba83188788700940d4ad75fb61",
+      "decoded_bytes": 126205952,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:44:56 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T6041"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac17g",
+      "zip_uncompressed_bytes": 33978076,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "45814e9ff859c323f7702b243de1295ac27fca9381f256c901c2109e531d507c",
+      "decoded_sha256": "b54b991e7ca72a1b6c05fe04b87eee54cd210c91adb191154075b6a456cc5796",
+      "decoded_bytes": 127991808,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:48:06 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T8142"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac17j",
+      "zip_uncompressed_bytes": 32576654,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "897c59d23f84810dbaf0834b26ee8632ab18b2cd2838b0905f8318756bef51b0",
+      "decoded_sha256": "17d400a23a1d445e0d5e1526e77be725b42cb8aa3d58a7b275355602f73bca91",
+      "decoded_bytes": 123961344,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:47:58 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T6050"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac17p",
+      "zip_uncompressed_bytes": 30663051,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "3ff06dc51cc916bd7959ea7a62b241c1d207728cc066a15a146a5afc21fb9ef8",
+      "decoded_sha256": "59abde4364397be90b0b6631a61f36e644faf357193d08ba17fa880c8c823e82",
+      "decoded_bytes": 117587968,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:46:09 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T8140"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.mac18g",
+      "zip_uncompressed_bytes": 32872430,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "bdea23dc94f30a2471974b5051d8277d87fd1389452c24ae62ce27f65fc4f02f",
+      "decoded_sha256": "836faa87190de27de15044f574fab0023dbd83ad56813935d2a68e17da873f5a",
+      "decoded_bytes": 125616128,
+      "architectures": [
+        "arm64"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:45:26 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T8152"
+    },
+    {
+      "entry": "AssetData/boot/kernelcache.release.vma2",
+      "zip_uncompressed_bytes": 23222533,
+      "status": "HEADER_RECOGNIZED",
+      "container": "IM4P",
+      "compression": "lzfse",
+      "wrapped_sha256": "d38b044b59e856754e573885d592979c26ec016a8406bf1dc344cf146dc82625",
+      "decoded_sha256": "01332067965f721b7e6984348510b717ff346d253d7639212dcd9f6c6161afaf",
+      "decoded_bytes": 81674240,
+      "architectures": [
+        "arm64e"
+      ],
+      "darwin_version_string": "Darwin Kernel Version 27.2.0: Wed Oct 14 23:44:09 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_VMAPPLE"
+    }
+  ],
+  "status": "NO_X86_64_IN_SHIPPED_KERNEL_ENTRIES",
+  "runtime_verification": "NOT_RUN"
+}

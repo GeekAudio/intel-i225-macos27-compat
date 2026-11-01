@@ -10,6 +10,7 @@ import zlib
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import prepare_installer
 import unpack_kernel
+import serve_shared_support
 
 
 def xar(data=b'payload', corrupt=False):
@@ -70,6 +71,20 @@ class ArchiveBoundaryTests(unittest.TestCase):
     def test_unrecognized_compression_rejected(self):
         with self.assertRaises(ValueError):
             unpack_kernel.decode(b'unknown')
+
+    def test_exact_http_range(self):
+        self.assertEqual(serve_shared_support.byte_range('bytes=0-0', 100), (0, 0, 206))
+
+    def test_suffix_http_range(self):
+        self.assertEqual(serve_shared_support.byte_range('bytes=-20', 100), (80, 99, 206))
+
+    def test_open_ended_http_range(self):
+        self.assertEqual(serve_shared_support.byte_range('bytes=90-', 100), (90, 99, 206))
+
+    def test_invalid_http_range_rejected(self):
+        for value in ['bytes=100-', 'bytes=1-0', 'bytes=-0', 'bytes=0-1,3-4']:
+            with self.assertRaises(ValueError):
+                serve_shared_support.byte_range(value, 100)
 
 
 if __name__ == '__main__':

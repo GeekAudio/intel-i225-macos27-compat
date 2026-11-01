@@ -80,12 +80,26 @@ def download(manifest_path, destination):
     manifest = json.loads(manifest_path.read_text())
     if not re.fullmatch(r'27(?:\.\d+)*', manifest.get('version', '')):
         raise ValueError('The pinned manifest does not identify macOS 27')
+    for key in ['verification_method', 'package_signature', 'package_signature_exit',
+                'all_chunk_sha256_match', 'chunk_count', 'chunklist_trailer_sha256_match']:
+        manifest.pop(key, None)
+    manifest['artifact_integrity_verified'] = False
+    manifest['catalog_digest_match'] = False
+    manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
     package = manifest['package']
     url, size = apple_url(package['URL']), int(package['Size'])
     digest = package.get('Digest', '').lower()
     if not re.fullmatch(r'[0-9a-f]{40}', digest):
         raise ValueError('A catalog SHA-1 digest is required before downloading')
     destination.mkdir(parents=True, exist_ok=True)
+    if package.get('IntegrityDataURL'):
+        integrity = get(package['IntegrityDataURL'])
+        if len(integrity) != package.get('IntegrityDataSize'):
+            raise ValueError('Apple integrity data size mismatch')
+        manifest['integrity_data_sha256'] = hashlib.sha256(integrity).hexdigest()
+        manifest['integrity_data_url'] = package['IntegrityDataURL']
+        manifest_path.with_suffix('.integrityDataV1').write_bytes(integrity)
+        manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
     filename = 'InstallAssistant-{}-{}.pkg'.format(manifest['version'], manifest['build'])
     final, partial = destination / filename, destination / (filename + '.partial')
     path = final if final.exists() else partial
@@ -119,8 +133,11 @@ def download(manifest_path, destination):
         for block in iter(lambda: stream.read(8 * 1024 * 1024), b''):
             sha1.update(block)
             sha256.update(block)
-    if sha1.hexdigest() != digest:
-        raise ValueError('Catalog SHA-1 mismatch; file was not promoted to a verified package')
+    manifest.update(local_filename=path.name, actual_size=size, sha1=sha1.hexdigest(),
+                    sha256=sha256.hexdigest(), catalog_digest_match=sha1.hexdigest() == digest)
+    manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
+    if not manifest['catalog_digest_match']:
+        raise ValueError('Catalog SHA-1 mismatch; file preserved. Use verify_integrity.py for pinned Apple chunk and signature verification')
     if path == partial:
         partial.rename(final)
     manifest.update(local_filename=filename, actual_size=size, sha1=sha1.hexdigest(),

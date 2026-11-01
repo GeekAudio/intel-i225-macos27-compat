@@ -2,6 +2,7 @@
 """Read an explicitly supplied offline macOS image. Never modify EFI or load a kext."""
 import argparse
 import hashlib
+import io
 import json
 from pathlib import Path
 import plistlib
@@ -10,14 +11,15 @@ import struct
 
 
 def macho_architectures(path):
-    """Return architecture slices from bounded, validated Mach-O headers."""
+    """Return slices from bounded Mach-O headers in a Path or bytes value."""
     cpus = {0x01000007: 'x86_64', 0x0100000c: 'arm64'}
     def name(cpu, subtype):
         if cpu == 0x0100000c and subtype & 0x00ffffff == 2:
             return 'arm64e'
         return cpus.get(cpu, 'cpu-{:x}'.format(cpu))
-    with path.open('rb') as stream:
-        size = path.stat().st_size
+    memory = isinstance(path, (bytes, bytearray))
+    with (io.BytesIO(path) if memory else path.open('rb')) as stream:
+        size = len(path) if memory else path.stat().st_size
         header = stream.read(8)
         if len(header) != 8:
             return []

@@ -1,0 +1,83 @@
+{
+  "scope": "This collection only; defined names are not linker authorization or C++ ABI proof",
+  "collection_filename": "kernelcache.release.mac14j.kc",
+  "collection_sha256": "2d6520798a32bee6e377a2906d3dd02a788d4ed396ae9c6c5884dbe909d8a47e",
+  "collection_bundle_count": 374,
+  "candidate_architecture": "arm64e",
+  "candidate_binary_sha256": "c2639077ffe5f491e5624782bd59fbc916730fb0c4515b2b5cee004073a40841",
+  "host_collections_used": false,
+  "host_symbol_sources_used": false,
+  "dependencies": [
+    {
+      "identifier": "com.apple.driver.mDNSOffloadUserClient",
+      "candidate_minimum": "1.0.0d7",
+      "target_collection_version": "1.0.1b8",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.iokit.IOEthernetAVBController",
+      "candidate_minimum": "1.0.3b2",
+      "target_collection_version": null,
+      "status": "NOT_LISTED_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": null
+    },
+    {
+      "identifier": "com.apple.iokit.IONetworkingFamily",
+      "candidate_minimum": "1.5",
+      "target_collection_version": "3.4",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.iokit.IOPCIFamily",
+      "candidate_minimum": "1.7",
+      "target_collection_version": "2.9",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.kpi.bsd",
+      "candidate_minimum": "13.0.0",
+      "target_collection_version": "27.2.0",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.kpi.iokit",
+      "candidate_minimum": "13.0.0",
+      "target_collection_version": "27.2.0",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.kpi.libkern",
+      "candidate_minimum": "13.0.0",
+      "target_collection_version": "27.2.0",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.kpi.mach",
+      "candidate_minimum": "13.0.0",
+      "target_collection_version": "27.2.0",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    }
+  ],
+  "candidate_import_count": 463,
+  "target_defined_global_name_count": 166211,
+  "present_name_count": 461,
+  "missing_names": [
+    "__ZN19IONetworkController29_RESERVEDIONetworkController6Ev",
+    "__ZN19IONetworkController29_RESERVEDIONetworkController7Ev"
+  ],
+  "missing_name_count": 2,
+  "status": "STATIC_INCOMPLETE",
+  "runtime_verification": "NOT_RUN",
+  "abi_verification": "NOT_ESTABLISHED",
+  "limits": [
+    "Missing entries may be supplied elsewhere in the full target OS.",
+    "Do not remove dependencies or create placeholder symbols merely to satisfy this scan."
+  ]
+}

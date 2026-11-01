@@ -8,6 +8,7 @@ import lzma
 from pathlib import Path
 import plistlib
 import re
+import xml.etree.ElementTree as ET
 
 
 def main():
@@ -20,6 +21,11 @@ def main():
     args = parser.parse_args()
     raw_dist = args.distribution.read_bytes()
     raw_assets = args.mobile_asset_plist.read_bytes()
+    aux = ET.fromstring(raw_dist).find('./auxinfo/dict')
+    children = list(aux) if aux is not None else []
+    distribution_values = {children[i].text: children[i + 1].text for i in range(0, len(children) - 1, 2)}
+    if (distribution_values.get('VERSION'), distribution_values.get('BUILD')) != (args.version, args.build):
+        parser.exit(2, 'Distribution does not match the pinned target\n')
     assets = plistlib.loads(raw_assets)['Assets']
     pairs = sorted(set((a.get('OSVersion'), a.get('Build')) for a in assets))
     if pairs != [(args.version, args.build)]:

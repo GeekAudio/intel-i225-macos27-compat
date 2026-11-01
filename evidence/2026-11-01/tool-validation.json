@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-01",
+  "unit_test_command": "python3 -m unittest discover -s tests -v",
+  "unit_tests": 31,
+  "unit_test_result": "PASS",
+  "synthetic_fixture_tests_are_os_compatibility_evidence": false,
+  "loopback_mount_smoke_test": {
+    "synthetic_fixture": true,
+    "http_range_readonly_mount": "PASS",
+    "installer_compatibility_test": false
+  },
+  "github_actions": "NOT_CONFIGURED",
+  "driver_loaded": false,
+  "installer_launched": false,
+  "real_shared_support_readonly_mount": "PASS",
+  "real_image_unmounted": true,
+  "loopback_server_stopped": true
+}

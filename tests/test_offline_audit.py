@@ -48,6 +48,7 @@ class OfflineAuditTests(unittest.TestCase):
 
     def test_thin_x86(self):
         self.assertEqual(audit.macho_architectures(self.binary), ['x86_64'])
+        self.assertEqual(audit.macho_architectures(thin()), ['x86_64'])
 
     def test_arm64e_is_not_arm64(self):
         self.binary.write_bytes(thin(0x0100000c, 2))

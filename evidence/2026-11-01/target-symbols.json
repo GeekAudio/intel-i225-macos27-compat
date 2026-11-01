@@ -1,0 +1,17 @@
+{
+  "scope": "Defined global names in mac14j boot collection only; not linker authorization or C++ ABI proof",
+  "target_collection": "kernelcache.release.mac14j",
+  "candidate_architecture": "arm64e",
+  "candidate_import_count": 463,
+  "target_defined_global_name_count": 166211,
+  "present_name_count": 461,
+  "missing_name_count": 2,
+  "missing_names": [
+    "__ZN19IONetworkController29_RESERVEDIONetworkController6Ev",
+    "__ZN19IONetworkController29_RESERVEDIONetworkController7Ev"
+  ],
+  "nm_exit": 0,
+  "host_symbol_sources_used": false,
+  "runtime_verification": "NOT_RUN",
+  "abi_verification": "NOT_ESTABLISHED"
+}

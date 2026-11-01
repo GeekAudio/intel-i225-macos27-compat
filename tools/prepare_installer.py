@@ -10,6 +10,7 @@ import subprocess
 import xml.etree.ElementTree as ET
 import zlib
 from offline_audit import sha256
+from apple_signature import trusted_apple_signature
 
 
 def entries(package):
@@ -72,10 +73,10 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     manifest = json.loads(args.manifest.read_text())
-    if not manifest.get('catalog_digest_match') or sha256(args.package) != manifest.get('sha256'):
+    if not (manifest.get('catalog_digest_match') or manifest.get('artifact_integrity_verified')) or sha256(args.package) != manifest.get('sha256'):
         parser.exit(2, 'Package does not match the verified download manifest\n')
     signature = subprocess.run(['pkgutil', '--check-signature', str(args.package)], capture_output=True, text=True)
-    if signature.returncode or 'Apple Root CA' not in signature.stdout or 'Software Signing' not in signature.stdout:
+    if not trusted_apple_signature(signature.returncode, signature.stdout):
         parser.exit(2, 'Apple package signature verification failed\n')
     if args.output.exists():
         parser.exit(2, 'Use a new output directory; existing data will not be overwritten\n')

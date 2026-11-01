@@ -1,0 +1,68 @@
+{
+  "scope": "mac14j boot collection only; missing entries may be supplied elsewhere",
+  "parent_package_sha256": "26bee623af06bf6c78a57e62ea6f188e678b841d9d30f25415fe73cf8444183a",
+  "collection": "kernelcache.release.mac14j",
+  "collection_bundle_count": 374,
+  "kmutil_inspect_exit": 0,
+  "host_collections_used": false,
+  "dependencies": [
+    {
+      "identifier": "com.apple.driver.mDNSOffloadUserClient",
+      "candidate_minimum": "1.0.0d7",
+      "target_collection_version": "1.0.1b8",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.iokit.IOEthernetAVBController",
+      "candidate_minimum": "1.0.3b2",
+      "target_collection_version": null,
+      "status": "NOT_LISTED_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": null
+    },
+    {
+      "identifier": "com.apple.iokit.IONetworkingFamily",
+      "candidate_minimum": "1.5",
+      "target_collection_version": "3.4",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.iokit.IOPCIFamily",
+      "candidate_minimum": "1.7",
+      "target_collection_version": "2.9",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.kpi.bsd",
+      "candidate_minimum": "13.0.0",
+      "target_collection_version": "27.2.0",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.kpi.iokit",
+      "candidate_minimum": "13.0.0",
+      "target_collection_version": "27.2.0",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.kpi.libkern",
+      "candidate_minimum": "13.0.0",
+      "target_collection_version": "27.2.0",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    },
+    {
+      "identifier": "com.apple.kpi.mach",
+      "candidate_minimum": "13.0.0",
+      "target_collection_version": "27.2.0",
+      "status": "PRESENT_IN_THIS_COLLECTION",
+      "version_minimum_satisfied": true
+    }
+  ],
+  "runtime_verification": "NOT_RUN",
+  "abi_verification": "NOT_ESTABLISHED"
+}

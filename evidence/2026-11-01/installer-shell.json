@@ -1,0 +1,23 @@
+{
+  "binaries": [
+    {
+      "path": "Contents/MacOS/InstallAssistant",
+      "sha256": "ba79282ddb1e2dc04122b682e3f840c21193cefc748255855e62502645a5bd2c",
+      "architectures": [
+        "arm64"
+      ]
+    },
+    {
+      "path": "Contents/MacOS/InstallAssistant_springboard",
+      "sha256": "156d2020d76afaf74e2d1f4013cd0726db5eaec2c7e7b6d90b8ee09fa4b1e0bf",
+      "architectures": [
+        "arm64"
+      ]
+    }
+  ],
+  "runtime_verification": "NOT_RUN",
+  "scope": "Installer shell binaries, not installed-system kernels",
+  "info_plist_sha256": "40d624b98319386c16d38387737b80844568804dae7aa1e9f73151eb94534e8d",
+  "bundle_id": "com.apple.InstallAssistant.macOSGoldenGate",
+  "bundle_version": "22101"
+}
