@@ -1,17 +1,10 @@
-# Intel I225-V · macOS 27 离线兼容研究
+# Intel I225-V · macOS 27 兼容研究
 
-为 Intel I225-V（`8086:15f3`）提前检查 macOS 27 的安装载荷、CPU 架构和旧 I210 驱动依赖。
-目标为 Apple 公开正式版 **macOS 27.2 / 26B123**，核对日期 **2026-11-01**。
+在一台 i7-12700K / Z690 主机上，AppleIntelI210Ethernet 2.3.1 已在 **macOS 27.2 `26B123` Golden Gate（x86_64）** 接管 I225-V。两次开机验证了千兆链路和网关连通，第二次抓到新的 DHCP ACK，使用者确认可以上网。操作方法、双系统配置和回退步骤见 [Golden Gate I225-V 指南](docs/GOLDEN-GATE-I225.zh-CN.md)。
 
-**状态：离线研究，尚未完成启动或网卡运行验证。** 本项目没有发布可用的 macOS 27 网卡修复包。
+仓库也保存了 2026-11-01 对 Apple 官方 ARM 安装载荷的离线检查。该检查与上述 x86_64 实机采用不同输入。旧 I210 的 arm64e 候选在所查集合中有两个未匹配的导入符号，旧 AVB 依赖也未列出。 [历史离线报告](docs/OFFLINE-REPORT.zh-CN.md)
 
-本次实际解封装了安装包中的 **14 份内核**：13 份 `arm64e`、1 份 `arm64`，没有 `x86_64`。
-旧 I210 的 arm64e 候选另有 **2 个导入符号**在所查 boot collection 中未找到，
-`IOEthernetAVBController` 依赖也未在该集合中列出。详见 [离线报告](docs/OFFLINE-REPORT.zh-CN.md)。
-
-基线来自 [intel-i225-tahoe-fix](https://github.com/GeekAudio/intel-i225-tahoe-fix)，固定提交
-[`3813bdac651822de56191f7e39c221f71a32478e`](https://github.com/GeekAudio/intel-i225-tahoe-fix/commit/3813bdac651822de56191f7e39c221f71a32478e)。
-基线驱动为 Apple `AppleIntelI210Ethernet 2.3.1`，包含 `x86_64 / arm64e`；在 Tahoe 上的实测结果不能延伸为 27 的支持声明。
+macOS 26 的基线来自 [intel-i225-tahoe-fix](https://github.com/GeekAudio/intel-i225-tahoe-fix)，固定提交 [3813bdac](https://github.com/GeekAudio/intel-i225-tahoe-fix/commit/3813bdac651822de56191f7e39c221f71a32478e)。
 
 ## 当前边界
 
@@ -131,10 +124,10 @@ python3 tools/offline_audit.py --root /Volumes/OfflineSystem \
 
 ## 证据与后续工作
 
-本次的固定来源、候选驱动清单和离线结果保存在 [evidence/2026-11-01](evidence/2026-11-01)。
+2026-11-01 的固定来源、候选驱动清单和离线结果保存在 [evidence/2026-11-01](evidence/2026-11-01)。
 Apple 安装器和解包载荷保留在本地，仓库保存工具及可复核的派生记录。
 
-后续阶段的具体条件见 [适配清单](docs/NEXT-STEPS.zh-CN.md)。
+当前实测范围和剩余测试见 [Golden Gate I225-V 指南](docs/GOLDEN-GATE-I225.zh-CN.md)。其他系统、架构和硬件可参考 [适配清单](docs/NEXT-STEPS.zh-CN.md)。
 
 后续工作以具体 macOS build 为单位：复核目标内核与网络组件；检查依赖和符号；如目标系统能够启动，再做驱动绑定、DHCP、局域网持续传输、拔插网线、重启和多次睡眠唤醒测试。
 记录测试链路速率和吞吐，不能将 Tahoe 的千兆结果或驱动包含 `arm64e` 当作 27 的兼容结论。
