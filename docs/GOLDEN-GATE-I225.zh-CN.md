@@ -8,7 +8,7 @@
 | 引导 | OpenCore 1.0.8，macOS 26 与 27 共用一份活动 EFI |
 | 网卡 | Intel I225-V `8086:15f3`，使用现有 I210 设备属性 |
 | 驱动 | AppleIntelI210Ethernet 2.3.1 的 x86_64 slice |
-| 运行证据 | 两次开机确认驱动绑定、千兆链路、默认路由与网关应答。第二次完整捕获 DHCP 续用地址的 Request / ACK |
+| 运行证据 | 两次开机的 IOService 树均为 `AppleIntelI210 → en0`，记录了千兆链路、默认路由与网关应答。第二次完整捕获 DHCP 续用地址的 Request / ACK |
 | 待测 | 独立采集 27 的外网探测结果、持续吞吐、睡眠恢复、2.5GbE 和其他主板或 I226 |
 
 Golden Gate 使用从同版本 KDK 构建的 Intel 内核集合。本文假定目标已经能启动到桌面。Apple 原版 arm64e 安装载荷的研究记录适用于另一组输入。 [Liberator Beta 1](https://github.com/nullmoth/nvidia-macos-driver/releases/tag/v3.0.0-beta.1)
@@ -17,34 +17,29 @@ Golden Gate 使用从同版本 KDK 构建的 Intel 内核集合。本文假定�
 
 核对启动分区的 GPT 分区 UUID。备份当前 `EFI/OC/config.plist`、原 I210 kext 和已有的 `EFI/OC-26`，或保留独立可启动的 26 引导介质。如果 27 上曾经手工改过 E1000，同时备份 27 的 DEXT。以下步骤在 EFI 副本上准备和验证。
 
-从自己的可用配置取出 AppleIntelI210Ethernet 2.3.1。实测通用二进制包含 `x86_64` 和 `arm64e`，本次只用 x86_64。以下是实测源二进制的 SHA-256。
+实测通用二进制包含 `x86_64` 和 `arm64e`，本次只用 x86_64。以下是源二进制的 SHA-256。
 
 ```text
 c2639077ffe5f491e5624782bd59fbc916730fb0c4515b2b5cee004073a40841
 ```
 
-校验路径为 `AppleIntelI210Ethernet.kext/Contents/MacOS/AppleIntelI210Ethernet`。发行资产只包含本文及其校验文件。 [macOS 26 I210 基线](https://github.com/GeekAudio/intel-i225-tahoe-fix)
+源和发布包的校验路径均为 kext 内的 `Contents/MacOS/AppleIntelI210Ethernet`。 [macOS 26 I210 基线发布包](https://github.com/GeekAudio/intel-i210-i225-ethernet/releases/tag/v1.0.2)
 
-## 2. 创建一份仅供 27 使用的 kext
+## 2. 准备仅供 27 使用的 kext
 
-在活动 EFI 的副本中执行，`OC_COPY` 指向副本的 `OC` 目录。保留原 kext 和它的现有条目。给 27 新增独立的文件夹，保留 Apple 的 `CFBundleIdentifier` 与可执行文件，只从副本的依赖列表中删除旧 AVB 组件。
+解压 [v0.1.1 发布包](https://github.com/GeekAudio/intel-i225-macos27-compat/releases/tag/v0.1.1)，取其中的 `Kexts/AppleIntelI210Ethernet-27.kext`。保留 macOS 26 的原 kext 和条目。也可在本仓库根目录从原版驱动生成，`--kext` 指向 Tahoe v1.0.2 发布包内的原 kext。
 
 ```sh
-OC_COPY=/path/to/copied/EFI/OC
-source_kext="$OC_COPY/Kexts/AppleIntelI210Ethernet.kext"
-target_kext="$OC_COPY/Kexts/AppleIntelI210Ethernet-27.kext"
-test ! -e "$target_kext" &&
-  ditto "$source_kext" "$target_kext" &&
-  /usr/libexec/PlistBuddy -c 'Delete :OSBundleLibraries:com.apple.iokit.IOEthernetAVBController' \
-    "$target_kext/Contents/Info.plist" &&
-  plutil -lint "$target_kext/Contents/Info.plist"
+mkdir -p work/kexts
+python3 tools/prepare_i210_27.py \
+  --kext /path/to/AppleIntelI210Ethernet.kext --output-dir work/kexts
 ```
 
 目标 27 的 x86_64 内核集合缺少旧的 `IOEthernetAVBController` bundle。I210 未直接引用该控制器类，所需的相关 `IOEthernetController` 方法仍在集合中。保留其他依赖。编辑 `Info.plist` 会改变 Apple 原签名所覆盖的资源，本方法使用 Golden Gate 已有的 OpenCore 注入路径。此次没有改 I210 机器码、C++ 符号或虚表。
 
 ## 3. 配置 OpenCore
 
-在 `Kernel → Add` 中保留 macOS 26 的 I210 条目。实测原条目的 `MaxKernel` 是 `26.99.99`，确保旧条目不会同时进入 Darwin 27。若原条目没有上限，给原条目加 `26.99.99`，同时保留原下限和启用状态。紧接其后加入以下条目。
+把准备好的 kext 放入 EFI 副本的 `OC/Kexts`。在 `Kernel → Add` 中保留 macOS 26 的 I210 条目。实测原条目的 `MaxKernel` 是 `26.99.99`，确保旧条目不会同时进入 Darwin 27。若原条目上限为空或高于 `26.99.99`，将上限设为 `26.99.99`，同时保留原下限和启用状态。紧接其后合并 [`Kernel-Add-27.plist`](../opencore/Kernel-Add-27.plist) 的单条字典。
 
 | 字段 | 值 |
 | --- | --- |
@@ -56,9 +51,26 @@ test ! -e "$target_kext" &&
 | `MinKernel` | `27.2.0` |
 | `MaxKernel` | `27.2.0` |
 
-保留原来可用的 I225 PCI 路径和设备属性。实测在 `DeviceProperties → Add` 的 I225 节点使用 Data 类型的 `device-id = 33150000`（小端 `0x1533`）与 `built-in = 01`。PCI 路径随主板和固件变化。
+把 [`I225-DeviceProperties.plist`](../opencore/I225-DeviceProperties.plist) 的两个属性合并到 `DeviceProperties → Add` 的 I225 节点。实测值为 Data 类型的 `device-id = 33150000`（小端 `0x1533`）与 `built-in = 01`。PCI 路径随主板和固件变化。
 
-实测配置原本就带 `e1000=0`。在本机，27 的 E1000 曾被手工修改为忽略该参数，因此切换时恢复了 27 DEXT 的原有 probe 检查。已有这类改动的机器，应从同 build 的备份恢复对应检查，再验证 E1000 没有接管这块卡。若共用引导下的其他系统依赖 E1000，使用独立的 27 引导配置。本文方案使用 I210，AppleIGC 不参与。
+实测配置原本就带 `e1000=0`。若共用引导下的其他系统依赖 E1000，使用独立的 27 引导配置。本文方案使用 I210，AppleIGC 不参与。未改过 E1000 probe 的机器可直接进入启动验收。
+
+### 曾修改 E1000 忽略 `e1000=0`
+
+优先使用同一 build、同一目标卷的已验证备份还原 probe 检查。如果当前文件是本项目先前测试的 x86_64 EEE-off 版本（SHA-256 `ed2f60274dc16a8078532e22ff06df7285e55c1e4269014248a3e4ad6190d9ee`），可在 DEXT 副本中用发布包的 `tools/restore_e1000_probe.py` 重现实测修复。工具对其他哈希会停止。
+
+```sh
+SYS='/Volumes/macOS 27' # 先按卷 UUID 和 SystemVersion.plist 核对目标
+NAME=com.apple.DriverKit-AppleEthernetE1000
+WORK=$(mktemp -d)
+cp -RX "$SYS/System/Library/DriverExtensions/$NAME.dext" "$WORK/"
+python3 tools/restore_e1000_probe.py \
+  --input "$WORK/$NAME.dext/$NAME" --output "$WORK/$NAME.restored" &&
+  mv "$WORK/$NAME.restored" "$WORK/$NAME.dext/$NAME" &&
+  codesign --verify --strict "$WORK/$NAME.dext"
+```
+
+通过签名校验后，备份 27 上的原二进制，只将恢复后的可执行文件替换到已确认的 27 卷，保留 `root:wheel`、`0755`、`restricted` 和原 `Info.plist`。按原挂载方式重挂并再次验证签名及 SHA-256 `62e312646fe8d59682be94fb3bbf9a8019ac421db5c9718205efc2d9bbc02c38`。
 
 ## 4. 验证、启动和回退
 
