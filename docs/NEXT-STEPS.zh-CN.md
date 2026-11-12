@@ -1,5 +1,7 @@
 # 下一阶段的适配条件
 
+[简体中文](NEXT-STEPS.zh-CN.md) | [English](NEXT-STEPS.en.md)
+
 > 本文保留 2026-11-01 的离线研究记录。2026-11-12 的 Golden Gate x86_64 实机方法及验证范围见 [I225-V 指南](GOLDEN-GATE-I225.zh-CN.md)。
 
 本项目的目标芯片是 I225-V `8086:15f3`，基线是旧 Apple I210 2.3.1。

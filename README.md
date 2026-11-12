@@ -1,5 +1,7 @@
 # macOS 27.2 Golden Gate 的 Intel I225-V 驱动方法
 
+[简体中文](README.md) | [English](README.en.md)
+
 适用于已经能启动的 **macOS 27.2 `26B123` Golden Gate（x86_64）** 和 Intel I225-V（`8086:15f3`）。
 
 ## 下载

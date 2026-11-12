@@ -1,5 +1,7 @@
 # macOS 27.2 / I225-V 离线检查
 
+[简体中文](OFFLINE-REPORT.zh-CN.md) | [English](OFFLINE-REPORT.en.md)
+
 > 本文保留 2026-11-01 的离线研究记录。2026-11-12 的 Golden Gate x86_64 实机方法及验证范围见 [I225-V 指南](GOLDEN-GATE-I225.zh-CN.md)。
 
 日期：2026-11-01。目标：Apple 公开正式版 macOS 27.2，build `26B123`，软件更新产品 `142-50055`。

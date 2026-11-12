@@ -1,5 +1,7 @@
 # macOS 27.2 Golden Gate 的 Intel I225-V 有线网卡
 
+[简体中文](GOLDEN-GATE-I225.zh-CN.md) | [English](GOLDEN-GATE-I225.en.md)
+
 在一台 i7-12700K / Z690 主机上，Intel I225-V（PCI `8086:15f3`）已用 AppleIntelI210Ethernet 2.3.1 在 Golden Gate 上运行。两次开机均识别网卡、协商到 1000baseT 全双工并能访问网关。第二次抓包记录了同一事务的 DHCP Request 和 ACK，使用者也确认能正常上网。
 
 | 项目 | 实测范围 |
