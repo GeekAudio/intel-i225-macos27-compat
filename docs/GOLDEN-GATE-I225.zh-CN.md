@@ -27,7 +27,7 @@ c2639077ffe5f491e5624782bd59fbc916730fb0c4515b2b5cee004073a40841
 
 ## 2. 准备仅供 27 使用的 kext
 
-解压 [v0.1.1 发布包](https://github.com/GeekAudio/intel-i225-macos27-compat/releases/tag/v0.1.1)，取其中的 `Kexts/AppleIntelI210Ethernet-27.kext`。保留 macOS 26 的原 kext 和条目。也可在本仓库根目录从原版驱动生成，`--kext` 指向 Tahoe v1.0.2 发布包内的原 kext。
+解压 [v0.1.2 发布包](https://github.com/GeekAudio/intel-i225-macos27-compat/releases/tag/v0.1.2)，取其中的 `Kexts/AppleIntelI210Ethernet-27.kext`。也可在本仓库根目录从原版驱动生成，`--kext` 指向 Tahoe v1.0.2 发布包内的原 kext。
 
 ```sh
 mkdir -p work/kexts
@@ -39,7 +39,7 @@ python3 tools/prepare_i210_27.py \
 
 ## 3. 配置 OpenCore
 
-把准备好的 kext 放入 EFI 副本的 `OC/Kexts`。在 `Kernel → Add` 中保留 macOS 26 的 I210 条目。实测原条目的 `MaxKernel` 是 `26.99.99`，确保旧条目不会同时进入 Darwin 27。若原条目上限为空或高于 `26.99.99`，将上限设为 `26.99.99`，同时保留原下限和启用状态。紧接其后合并 [`Kernel-Add-27.plist`](../opencore/Kernel-Add-27.plist) 的单条字典。
+把准备好的 kext 放入 EFI 副本的 `OC/Kexts`。把 [`Kernel-Add-27.plist`](../opencore/Kernel-Add-27.plist) 的字典加入 `Kernel → Add`。若已有 macOS 26 的 I210 条目，保留原条目，将为空或高于 `26.99.99` 的 `MaxKernel` 设为 `26.99.99`，并把 27 的条目放在它后面。
 
 | 字段 | 值 |
 | --- | --- |
@@ -53,7 +53,11 @@ python3 tools/prepare_i210_27.py \
 
 把 [`I225-DeviceProperties.plist`](../opencore/I225-DeviceProperties.plist) 的两个属性合并到 `DeviceProperties → Add` 的 I225 节点。实测值为 Data 类型的 `device-id = 33150000`（小端 `0x1533`）与 `built-in = 01`。PCI 路径随主板和固件变化。
 
-实测配置原本就带 `e1000=0`。若共用引导下的其他系统依赖 E1000，使用独立的 27 引导配置。本文方案使用 I210，AppleIGC 不参与。未改过 E1000 probe 的机器可直接进入启动验收。
+对照原 EFI 或 IORegistryExplorer 中 I225 的 PCI 父链确认路径。实测主机的路径为 `PciRoot(0x0)/Pci(0x1C,0x2)/Pci(0x0,0x0)`，此值仅供对照。
+
+在 `NVRAM → Add → 7C436110-AB2A-4BBB-A880-FE41995C9F82 → boot-args` 中保留原参数，并确保 `e1000` 只有一个值 `e1000=0`。在 `NVRAM → Delete → 7C436110-AB2A-4BBB-A880-FE41995C9F82` 数组里保留其他条目并列出 `boot-args`。OpenCore 先删除这个旧变量，再写入完整的新值。 [OpenCore 1.0.8 配置文档](https://github.com/acidanthera/OpenCorePkg/blob/1.0.8/Docs/Configuration.tex)
+
+若原 EFI 也为此卡配置了 AppleIGC 等驱动，限定这些条目的 Darwin 版本，使其跳过 27.2.0。若共用引导下的其他系统依赖 E1000，使用独立的 27 引导配置。未改过 E1000 probe 的机器可直接进入启动验收。
 
 ### 曾修改 E1000 忽略 `e1000=0`
 
@@ -80,6 +84,7 @@ python3 tools/restore_e1000_probe.py \
 
 ```sh
 networksetup -listallhardwareports
+sysctl -n kern.bootargs | tr ' ' '\n' | grep -Fx 'e1000=0'
 kmutil showloaded --list-only | grep AppleIntelI210Ethernet
 ioreg -r -c AppleIntelI210 -d 2
 ifconfig en0
@@ -90,6 +95,6 @@ test -n "$gateway" && ping -n -b en0 -c 3 "$gateway"
 curl --noproxy '*' --interface en0 --connect-timeout 5 --max-time 10 -I https://example.com/
 ```
 
-判断 DHCP 是否来自本次启动时，用 `tcpdump` 比对 Request 和 ACK 的事务 ID，避免把缓存租约当成新应答。关闭 EEE、改用软件校验和以及降到 100 Mbps 的 E1000 实验均未在这台机器恢复联网。
+在 I/O Registry 中确认 `AppleIntelI210` 下挂的是目标以太网接口，驱动出现在 `kmutil` 列表里只代表它已加载。判断 DHCP 是否来自本次启动时，用 `tcpdump` 比对 Request 和 ACK 的事务 ID，避免把缓存租约当成新应答。关闭 EEE、改用软件校验和以及降到 100 Mbps 的 E1000 实验均未在这台机器恢复联网。
 
 回退时从已知可启动的引导进入 26，恢复修改前的活动 EFI 配置，再移除新增的 `AppleIntelI210Ethernet-27.kext`。如果本次修改过 27 的 E1000，按备份还原 27 卷上的对应文件。重挂校验后再启动目标系统。
